@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+        <title>PASE Banner 3d</title>
+
+        <!-- Babylon.js -->
+        <script src="https://cdn.babylonjs.com/babylon.js"></script>
+        <script src="https://cdn.babylonjs.com/loaders/babylonjs.loaders.js"></script>
+
+        <style>
+            html, body {
+                overflow: hidden;
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+
+            #renderCanvas {
+                width: 100%;
+                height: 100%;
+                touch-action: none;
+
+                outline: none !important;
+            }
+            
+            #canvasZone {
+                width: 100%;
+                
+                position: absolute;
+                bottom:-20%; right:0;
+            }
+            #bann3d {
+                background-image: url(bg.png);
+                background-size: cover;
+                aspect-ratio: 4/2;
+                position: relative;
+            }
+            #bann3d svg {
+                width: 100%;
+                position: absolute;
+                left:0; right:0;
+                bottom:-1px;
+                z-index: 0;
+            }
+
+        </style>
+    </head>
+<body>
+    <div id="bann3d">
+        <div id="canvasZone"><canvas id="renderCanvas"></canvas></div>
+
+        <svg width="1280" viewBox="0 0 1280 59" fill="none" xmlns="http://www.w3.org/2000/svg"> 
+            <path d="M0 38.9825C0 38.9825 386.199 0 640 0C893.801 0 1280 38.9825 1280 38.9825V50C1280 50 1120 50 640 50C160 50 0 50 0 50L0 38.9825Z" fill="white"/> 
+            <path d="M0 46.9825C0 46.9825 386.199 8 640 8C893.801 8 1280 46.9825 1280 46.9825V59C1280 59 1120 59 640 59C160 59 0 59 0 59V46.9825Z" fill="#0f4292"/> 
+        </svg>
+    </div>
+
+    <script>
+        var thecargl = null;
+        var camera = null
+        var canvas = document.getElementById("renderCanvas");
+        //canvas.addEventListener("pointermove", onPointerMove);
+
+        var startRenderLoop = function (engine, canvas) {
+            engine.runRenderLoop(function () {
+                if (sceneToRender && sceneToRender.activeCamera) {
+                    sceneToRender.render();
+                }
+            });
+        };
+
+        var engine = null;
+        var scene = null;
+        var sceneToRender = null;
+
+        var createDefaultEngine = function() { 
+            return new BABYLON.Engine(canvas, true, { preserveDrawingBuffer: true, stencil: true, disableWebGL2Support: false }); 
+        };
+
+        function createCamera(scene) {
+            camera = new BABYLON.FreeCamera("camera1", new BABYLON.Vector3(1.6, -0.4, -5.5), scene);
+            camera.fov = 0.1;
+            camera.setTarget(new BABYLON.Vector3(0, 0, 0));
+
+            return camera;
+        }
+
+        function createLighting(scene) {
+            var light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 2, 0), scene);
+            light.intensity = 1.7;
+            var light2 = new BABYLON.PointLight("light", new BABYLON.Vector3(1, -0.5, -4), scene);
+            light2.intensity = 40.7;
+            
+            
+            var light4 = new BABYLON.PointLight("light", new BABYLON.Vector3(-2, 10, 30), scene);
+            light4.intensity = 500;
+            light4.diffuse = new BABYLON.Color3(0, 0, 255);
+            
+
+
+        }
+
+        function addGlow(scene) {
+            const glowLayer = new BABYLON.GlowLayer("glow", scene);
+            glowLayer.intensity = 0.8;
+        }
+
+
+        // Function to create a quaternion from X and Y rotations
+        function createQuaternionFromAxes(xRotation, yRotation) {
+            var xQuaternion = BABYLON.Quaternion.RotationAxis(BABYLON.Axis.X, xRotation);
+            var yQuaternion = BABYLON.Quaternion.RotationAxis(BABYLON.Axis.Y, yRotation);
+            return yQuaternion.multiply(xQuaternion);  // Note the order: Y first, then X
+        }
+
+        function animateCar() {
+            var car = thecargl;
+
+            // Position Z animation (from 10 to 0)
+            var carAnimationZ = new BABYLON.Animation("carAnimationZ", "position.z", 50, BABYLON.Animation.ANIMATIONTYPE_FLOAT, BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT);
+            var carKeysZ = [
+                { frame: 0, value: 80 },
+                { frame: 50, value: 0 }
+            ];
+            carAnimationZ.setKeys(carKeysZ);
+
+            // Position X animation (from 20 to 0)
+            var carAnimationX = new BABYLON.Animation("carAnimationX", "position.x", 50, BABYLON.Animation.ANIMATIONTYPE_FLOAT, BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT);
+            var carKeysX = [
+                { frame: 0, value: -16.5 },
+                { frame: 50, value: 0 }
+            ];
+            carAnimationX.setKeys(carKeysX);
+            
+            // Position Y animation (from 20 to 0)
+            var carAnimationY = new BABYLON.Animation("carAnimationY", "position.y", 50, BABYLON.Animation.ANIMATIONTYPE_FLOAT, BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT);
+            var carKeysY = [
+                { frame: 0, value: 5.8 },
+                { frame: 46, value: -0.1 },
+                { frame: 50, value: -0.12 }
+            ];
+            carAnimationY.setKeys(carKeysY);
+
+
+            // Rotation X and Y
+            var carRotation = new BABYLON.Animation("carRotation", "rotationQuaternion", 50, BABYLON.Animation.ANIMATIONTYPE_QUATERNION, BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT);
+
+            // Create start and end quaternions for both X and Y axes
+            var startQuaternion = createQuaternionFromAxes(BABYLON.Tools.ToRadians(10), BABYLON.Tools.ToRadians(166));
+            var endQuaternion = createQuaternionFromAxes(BABYLON.Tools.ToRadians(0), BABYLON.Tools.ToRadians(180));
+
+            // Define animation keyframes
+            var carRotationKeys = [
+                { frame: 0, value: startQuaternion },
+                { frame: 50, value: endQuaternion }
+            ];
+
+            carRotation.setKeys(carRotationKeys);
+
+            // Ensure the car uses rotationQuaternion
+            car.rotationQuaternion = BABYLON.Quaternion.Identity();
+
+           
+            
+
+            // Easing function for smoother transitions
+            var easingFunction = new BABYLON.QuadraticEase();
+            easingFunction.setEasingMode(BABYLON.EasingFunction.EASINGMODE_EASEOUT);
+
+            carAnimationZ.setEasingFunction(easingFunction);
+            carAnimationX.setEasingFunction(easingFunction);
+            carAnimationY.setEasingFunction(easingFunction);
+            carRotation.setEasingFunction(easingFunction);
+
+            // Apply animations to the car
+            car.animations = [carAnimationZ, carAnimationX, carAnimationY, carRotation];
+
+
+            
+            return [carAnimationZ, carAnimationX, carAnimationY, carRotation];
+        }
+
+        function rotateWheels(scene) {
+            var wheelspeed = -5;
+            var wheel1 = scene.getMeshByName("pase_wheel_back");
+            var wheel2 = scene.getMeshByName("pase_wheel_front_left");
+            var wheel3 = scene.getMeshByName("pase_wheel_front_right");
+
+            scene.registerBeforeRender(function () {
+                if (wheel1) wheel1.rotate(BABYLON.Axis.X, BABYLON.Tools.ToRadians(wheelspeed), BABYLON.Space.LOCAL);
+                if (wheel2) wheel2.rotate(BABYLON.Axis.X, BABYLON.Tools.ToRadians(wheelspeed), BABYLON.Space.LOCAL);
+                if (wheel3) wheel3.rotate(BABYLON.Axis.X, BABYLON.Tools.ToRadians(wheelspeed), BABYLON.Space.LOCAL);
+            });
+        }
+
+        function followCar(camera, car) {
+            scene.registerBeforeRender(function () {
+                var carPosition = car.position.clone();
+                carPosition.y += 0.12;
+                camera.setTarget(carPosition);
+            });
+        }
+
+        // Function to update camera position based on mouse movement
+        function onPointerMove(event) {
+            var canvasRect = canvas.getBoundingClientRect();
+            var mouseX = (event.clientX - canvasRect.left) / canvasRect.width;
+            var mouseY = (event.clientY - canvasRect.top) / canvasRect.height;
+
+            // Calculate the new camera position based on mouse coordinates
+            var offsetX = (mouseX - 0.5) * 2 * 0.5;  // Scale the offset to control sensitivity
+            var offsetY = (mouseY - 0.5) * 2 * 0.5;
+
+            // Apply the offset to the camera position
+            camera.position.x += offsetX*0.01;
+            camera.position.y += offsetY*0.01;
+
+            // Ensure the camera stays in a valid position
+            camera.position.x = Math.max(-10, Math.min(10, camera.position.x));
+            camera.position.y = Math.max(-10, Math.min(10, camera.position.y));
+        }
+
+        
+
+        function rotateCameraAroundCar(camera, car, scene) {
+            var rotationSpeed = 0.0004;
+            var maxAngle = BABYLON.Tools.ToRadians(10);
+            var angle = 0;
+            var direction = 1;
+
+            var initialCameraPosition = camera.position.clone();
+            var initialCarPosition = car.position.clone();
+            var initialOffset = initialCameraPosition.subtract(initialCarPosition);
+            var initialDistance = initialOffset.length();
+            var initialAngle = Math.atan2(initialOffset.z, initialOffset.x);
+
+            scene.registerBeforeRender(function () {
+                angle += rotationSpeed * direction;
+                if (angle > maxAngle || angle < -maxAngle) direction *= -1;
+
+                var carPosition = car.position.clone();
+                var newX = carPosition.x + initialDistance * Math.cos(initialAngle + angle);
+                var newZ = carPosition.z + initialDistance * Math.sin(initialAngle + angle);
+
+                camera.position.x = newX;
+                camera.position.z = newZ;
+                camera.setTarget(new BABYLON.Vector3(car.position.x, car.position.y + 0.12, car.position.z));
+            });
+        }
+
+        var createScene = function () {
+            var scene = new BABYLON.Scene(engine);
+            scene.clearColor = new BABYLON.Color4(0, 0, 0, 0);
+
+            var camera = createCamera(scene);
+            createLighting(scene);
+            addGlow(scene);
+
+            BABYLON.SceneLoader.ImportMesh("", "./", "pasecar.glb", scene, function(newMeshes) {
+                var thecar = newMeshes[0];
+                thecargl = thecar;
+
+                var carAnimation = animateCar();
+                rotateWheels(scene);
+                //followCar(camera, thecar);
+                
+                scene.beginAnimation(thecar, 0, 50, false, 1.0, function () {
+                    console.log('end')
+                    rotateCameraAroundCar(camera, thecar, scene);
+                });
+
+            });
+
+            return scene;
+        };
+
+        window.initFunction = async function() {
+            var asyncEngineCreation = async function() {
+                try {
+                    return createDefaultEngine();
+                } catch (e) {
+                    console.log("the available createEngine function failed. Creating the default engine instead");
+                    return createDefaultEngine();
+                }
+            }
+
+            window.engine = await asyncEngineCreation();
+            if (!engine) throw 'engine should not be null.';
+            startRenderLoop(engine, canvas);
+            window.scene = createScene();
+        };
+
+        setTimeout(()=>{
+            initFunction().then(() => { sceneToRender = scene });
+        }, 1000)
+
+        window.addEventListener("resize", function () {
+            engine.resize();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+        <title>PASE Banner 3d</title>
+
+        <!-- Babylon.js -->
+        <script src="https://cdn.babylonjs.com/babylon.js"></script>
+        <script src="https://cdn.babylonjs.com/loaders/babylonjs.loaders.js"></script>
+
+        <style>
+            html, body {
+                overflow: hidden;
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+
+            #renderCanvas {
+                width: 100%;
+                aspect-ratio: 10/3;
+                touch-action: none;
+                outline: none !important;
+                background: #0f4292;
+                background-image: url(bg2.svg);
+                background-position: bottom;
+                background-size: cover;
+            }
+            
+            #canvasZone {
+                width: 100%;
+                aspect-ratio: 10/3;
+            }
+
+        </style>
+    </head>
+<body>
+
+        <div id="canvasZone"><canvas id="renderCanvas"></canvas></div>
+
+
+    <script>
+        var thecargl = null;
+        var camera = null
+        var canvas = document.getElementById("renderCanvas");
+        //canvas.addEventListener("pointermove", onPointerMove);
+
+        var startRenderLoop = function (engine, canvas) {
+            engine.runRenderLoop(function () {
+                if (sceneToRender && sceneToRender.activeCamera) {
+                    sceneToRender.render();
+                }
+            });
+        };
+
+        var engine = null;
+        var scene = null;
+        var sceneToRender = null;
+
+        var createDefaultEngine = function() { 
+            return new BABYLON.Engine(canvas, true, { preserveDrawingBuffer: true, stencil: true, disableWebGL2Support: false }); 
+        };
+
+        function createCamera(scene) {
+            camera = new BABYLON.FreeCamera("camera1", new BABYLON.Vector3(0, 0, -5.5), scene);
+            camera.fov = 0.1;
+            camera.setTarget(new BABYLON.Vector3(0, 0, 0));
+
+            return camera;
+        }
+
+        function createLighting(scene) {
+            /*
+            var light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 2, 0), scene);
+            light.intensity = 1.7;
+            */
+            
+            
+            var light4 = new BABYLON.PointLight("light", new BABYLON.Vector3(-3,0, 1), scene);
+            light4.intensity = 1.1;
+            light4.diffuse = new BABYLON.Color3(0, 0, 255);
+            
+            var light5 = new BABYLON.PointLight("light", new BABYLON.Vector3(-1,1, -4), scene);
+            light5.intensity = .1;
+            light5.diffuse = new BABYLON.Color3(255, 255, 255);
+            
+            var light6 = new BABYLON.PointLight("light", new BABYLON.Vector3(2,3, -4), scene);
+            light6.intensity = .1;
+            light6.diffuse = new BABYLON.Color3(255, 255, 255);
+            
+
+
+        }
+
+        function addGlow(scene) {
+            const glowLayer = new BABYLON.GlowLayer("glow", scene);
+            glowLayer.intensity = 0.8;
+        }
+
+
+        // Function to create a quaternion from X and Y rotations
+        function createQuaternionFromAxes(xRotation, yRotation) {
+            var xQuaternion = BABYLON.Quaternion.RotationAxis(BABYLON.Axis.X, xRotation);
+            var yQuaternion = BABYLON.Quaternion.RotationAxis(BABYLON.Axis.Y, yRotation);
+            return yQuaternion.multiply(xQuaternion);  // Note the order: Y first, then X
+        }
+
+
+            function animateCar(car) {
+                var car = thecargl;
+            // Animación en el eje X (de izquierda a derecha)
+            var carAnimationX = new BABYLON.Animation(
+                "carAnimationX",
+                "position.x",
+                60,  // Velocidad de la animación (puedes ajustarla)
+                BABYLON.Animation.ANIMATIONTYPE_FLOAT,
+                BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE  // Hacer que se repita
+            );
+
+            // Definir las claves para la animación en X (entrando desde -20 y saliendo por 20)
+            var carKeysX = [
+                { frame: 0, value: -3 },
+                { frame: 200, value: 3 }
+            ];
+
+            carAnimationX.setKeys(carKeysX);
+
+            // Asignar la animación al carro
+            car.animations = [carAnimationX];
+
+            // Iniciar la animación
+            scene.beginAnimation(car, 0, 200, true);  // Repetir indefinidamente
+        }
+
+
+        function rotateWheels(scene) {
+            var wheelspeed = -10;
+            var wheel1 = scene.getMeshByName("pase_wheel_back");
+            var wheel2 = scene.getMeshByName("pase_wheel_front_left");
+            var wheel3 = scene.getMeshByName("pase_wheel_front_right");
+
+            scene.registerBeforeRender(function () {
+                if (wheel1) wheel1.rotate(BABYLON.Axis.X, BABYLON.Tools.ToRadians(wheelspeed), BABYLON.Space.LOCAL);
+                if (wheel2) wheel2.rotate(BABYLON.Axis.X, BABYLON.Tools.ToRadians(wheelspeed), BABYLON.Space.LOCAL);
+                if (wheel3) wheel3.rotate(BABYLON.Axis.X, BABYLON.Tools.ToRadians(wheelspeed), BABYLON.Space.LOCAL);
+            });
+        }
+
+        function followCar(camera, car) {
+            scene.registerBeforeRender(function () {
+                var carPosition = car.position.clone();
+                carPosition.y += 0.12;
+                camera.setTarget(carPosition);
+            });
+        }
+
+        // Function to update camera position based on mouse movement
+        function onPointerMove(event) {
+            var canvasRect = canvas.getBoundingClientRect();
+            var mouseX = (event.clientX - canvasRect.left) / canvasRect.width;
+            var mouseY = (event.clientY - canvasRect.top) / canvasRect.height;
+
+            // Calculate the new camera position based on mouse coordinates
+            var offsetX = (mouseX - 0.5) * 2 * 0.5;  // Scale the offset to control sensitivity
+            var offsetY = (mouseY - 0.5) * 2 * 0.5;
+
+            // Apply the offset to the camera position
+            camera.position.x += offsetX*0.01;
+            camera.position.y += offsetY*0.01;
+
+            // Ensure the camera stays in a valid position
+            camera.position.x = Math.max(-10, Math.min(10, camera.position.x));
+            camera.position.y = Math.max(-10, Math.min(10, camera.position.y));
+        }
+
+
+
+        function rotateCameraAroundCar(camera, car, scene) {
+            var rotationSpeed = 0.0004;
+            var maxAngle = BABYLON.Tools.ToRadians(10);
+            var angle = 0;
+            var direction = 1;
+
+            var initialCameraPosition = camera.position.clone();
+            var initialCarPosition = car.position.clone();
+            var initialOffset = initialCameraPosition.subtract(initialCarPosition);
+            var initialDistance = initialOffset.length();
+            var initialAngle = Math.atan2(initialOffset.z, initialOffset.x);
+
+            scene.registerBeforeRender(function () {
+                angle += rotationSpeed * direction;
+                if (angle > maxAngle || angle < -maxAngle) direction *= -1;
+
+                var carPosition = car.position.clone();
+                var newX = carPosition.x + initialDistance * Math.cos(initialAngle + angle);
+                var newZ = carPosition.z + initialDistance * Math.sin(initialAngle + angle);
+
+                camera.position.x = newX;
+                camera.position.z = newZ;
+                camera.setTarget(new BABYLON.Vector3(car.position.x, car.position.y + 0.12, car.position.z));
+            });
+        }
+
+        var createScene = function () {
+            var scene = new BABYLON.Scene(engine);
+            scene.clearColor = new BABYLON.Color4(0, 0, 0, 0);
+
+            var camera = createCamera(scene);
+            createLighting(scene);
+            addGlow(scene);
+
+            BABYLON.SceneLoader.ImportMesh("", "./", "pasecar.glb", scene, function(newMeshes) {
+                var thecar = newMeshes[0];
+                thecargl = thecar;
+
+                var carAnimation = animateCar();
+                rotateWheels(scene);
+                thecar.position.y = -.2;
+                thecar.position.z = 1;
+                thecar.rotate(BABYLON.Axis.Y, BABYLON.Tools.ToRadians(-90), BABYLON.Space.LOCAL);
+                
+
+            });
+
+
+            BABYLON.SceneLoader.ImportMesh("", "./", "thetag.glb", scene, function (meshes) {
+                    var object = meshes[0];  // Obtener el objeto cargado
+
+                    // Escalar el objeto (xyz) a 0.5
+                    object.scaling = new BABYLON.Vector3(-0.05, 0.05, 0.05);
+
+                    // Colocarlo en el centro de la escena
+                    object.position = new BABYLON.Vector3(0, .1, 0);
+
+                    // Rotación constante en el eje Y
+                    scene.registerBeforeRender(function () {
+                        object.rotate(BABYLON.Axis.Y, BABYLON.Tools.ToRadians(1.3), BABYLON.Space.LOCAL);  // Rotar 1 grado por frame
+                    });
+                });
+
+            return scene;
+        };
+
+        window.initFunction = async function() {
+            var asyncEngineCreation = async function() {
+                try {
+                    return createDefaultEngine();
+                } catch (e) {
+                    console.log("the available createEngine function failed. Creating the default engine instead");
+                    return createDefaultEngine();
+                }
+            }
+
+            window.engine = await asyncEngineCreation();
+            if (!engine) throw 'engine should not be null.';
+            startRenderLoop(engine, canvas);
+            window.scene = createScene();
+        };
+        setTimeout(()=>{
+            initFunction().then(() => { sceneToRender = scene });
+        }, 1000)
+
+        window.addEventListener("resize", function () {
+            engine.resize();
+        });
+    </script>
+</body>
+</html>

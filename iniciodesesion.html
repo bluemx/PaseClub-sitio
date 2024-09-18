@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+    <title>PASE Club</title>
+    <!-- Estilos -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="css/font-awesome.css" />
+	<link rel="stylesheet" href="css/estilos_misc.css" />
+	<link rel="stylesheet" href="css/estilos_style.css?v=2.5" />
+	<link rel="stylesheet" href="css/main.css?v=4.5" />
+	<link rel="stylesheet" href="css/carousel.css" />
+	<link rel="stylesheet" href="css/animate.css" media="all" />
+	<link rel="stylesheet" href="css/hover.css" media="all" />
+	<link rel="stylesheet" href="css/fonts.css" media="all" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+	<link rel="shortcut icon" href="images/favicon.png" />
+
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!--JQuery-->
+    <script src="https://code.jquery.com/jquery-1.12.0.min.js" type="text/javascript"></script>
+</head>
+
+<body data-spy="scroll">
+    <form method="post" action="./Home.aspx" onsubmit="return false;" id="form1">
+
+        <!--Menú Principal -->
+        <div id="Menu_cont_menu_anonymous">
+            <div class="site-main" id="sTop">
+                <div class="site-header">
+                    <!-- /.container -->
+                    <div class="main-header">
+                        <div class="container-fluid">
+                            <div id="menu-wrapper">
+                                <div class="row">
+                                    <div class="col-lg-2 col-md-6 col-sm-6 col-7 cont-logo pb-2">
+                                        <center><a href="index.html"><img src="images/logo/logo_header.svg"
+                                                    ondragstart="return false;" oncontextmenu="return false;" /></a>
+                                        </center>
+                                    </div>
+                                    <div class="col-lg-10 col-md-6 col-sm-6 col-5 main-menu-anonymous text-right">
+                                        <ul class="menu-first hidden-sm hidden-xs">
+                                            <li><a href="#juegos">Juegos</a></li>
+                                            <li><a href="#movimientos">Mis Movimientos</a></li>
+                                            <li><a href="#insignias">Mis Insignias</a></li>
+                                            <li><a href="#miperfil">Mi perfil</a></li>
+                                            <li><a href="#datosdeacceso">Datos de Acceso</a></li>
+                                        </ul>
+                                        <a href="#" class="toggle-menu visible-sm visible-xs"><i
+                                                class="fa fa-bars"></i></a>
+                                        <a id="login_mobile" class="toggle-login cursor visible-sm visible-xs"><i
+                                                class="fa fa-user"></i></a>
+                                        <div class="login-box animated">
+
+                                            <div id="Menu_Login_Login_PnlLogin">
+
+                                                <div class="row login-body">
+                                                    <div class="col-sm-12 col-12 lgn">
+                                                        <input name="ctl00$Menu$Login$Login$UserName" type="text"
+                                                            id="Menu_Login_Login_UserName" class="form-control"
+                                                            placeholder="Correo" />
+                                                        <span id="Menu_Login_Login_UserNameRequired"
+                                                            class="error_required_login" style="display:none;">El correo
+                                                            es requerido.</span>
+                                                        <span id="Menu_Login_Login_RegularExpressionValidator1"
+                                                            class="error_required_login" style="display:none;">El
+                                                            formato del correo no es válido</span>
+                                                    </div>
+                                                    <div class="col-sm-12 col-12 lgn">
+                                                        <input name="ctl00$Menu$Login$Login$Password" type="password"
+                                                            id="Menu_Login_Login_Password" class="form-control"
+                                                            placeholder="Contraseña" />
+                                                        <span id="Menu_Login_Login_PasswordRequired"
+                                                            class="error_required_login" style="display:none;">La
+                                                            contraseña es obligatoria.</span>
+                                                    </div>
+                                                    <div class="col-sm-12 col-12 lgn">
+                                                        <a href="#" target="_self">
+                                                            <div class="btn bnt-lg btn-secondary btn-block"
+                                                                type="submit">Iniciar sesión</div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-12 login-footer">
+                                                    <a href="#ModalRecoverPass" data-toggle="modal">¿Olvidaste tu
+                                                        contraseña?</a><br /><a class="have_account_link"
+                                                        href="#register_session" id="dont_have_account">¿No tienes una
+                                                        cuenta? ¡Regístrate!</a>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div><!-- /.main-menu -->
+                                </div><!-- /.row -->
+                            </div><!-- /#menu-wrapper -->
+                            <div class="menu-responsive hidden-md hidden-lg">
+                                <ul>
+                                    <li><a href="#juegos">Juegos</a></li>
+                                    <li><a href="#movimientos">Mis Movimientos</a></li>
+                                    <li><a href="#insignias">Mis Insignias</a></li>
+                                    <li><a href="#miperfil">Mi perfil</a></li>
+                                    <li><a href="#datosdeacceso">Datos de Acceso</a></li>
+                                </ul>
+                            </div><!-- /.menu-responsive -->
+                        </div><!-- /.container -->
+                        <!-- ---------- ------  <object data="images/bg/plecaBG-1.svg" > </object>  -->
+                    </div><!-- /.main-header -->
+                </div><!-- /.site-header -->
+
+                <div class="clear-login"></div>
+                <div class="clear-cb visible-xs"></div>
+
+
+                <div class="anchor"></div>
+            </div>
+
+        </div>
+
+        <!--Recuperar contraseña -->
+        <div class="modal fade" id="ModalRecoverPass" ondragstart="return false;" oncontextmenu="return false;">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body text-center">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <br />
+                        <center><img src="images/logo/logo_header.svg" width="320" alt=""></center><br />
+                        <br />
+                        <div class="txtpopup text-center">Recuperación de contraseña</div>
+                        <br />
+                        <div class="txttext">
+                            <input name="ctl00$Menu$TbxEmail" type="text" id="Menu_TbxEmail" class="tbx-recover-pass"
+                                placeholder="Correo electrónico" />
+                            <input type="submit" name="ctl00$Menu$BtnRecover" value="Recuperar" onclick="return false;"
+                                id="Menu_BtnRecover" class="boton" />
+                        </div>
+                        <span id="Menu_RequiredFieldValidator1" class="error_required_2" style="display:none;">Ingresa
+                            tu correo electrónico</span>
+                        <span id="Menu_RegularExpressionValidator1" class="error_required_2" style="display:none;">El
+                            formato del correo electrónico no es válido</span>
+                        <div class="login-msg rcv animated"></div>
+                        <br />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!---->
+
+<section style="line-height: 0;">
+    <iframe style="width:100%; aspect-ratio: 4/2;" src="extra/banner/intro.html" scrolling="no"></iframe>
+</section>
+
+
+
+
+<section id="bienvenido" class="whitetxt p-5" style="background: var(--colCorpG); margin-top: 0;">
+    <div class="text-center p-5">
+        <img src="extra/bienvenido.svg" alt="BIENVENIDO A PASE CLUB" class="mx-auto">
+    </div>
+
+    <iframe id="tagiframe" src="extra/selector/" scrolling="no"></iframe>
+    <style>
+        iframe#tagiframe{
+            aspect-ratio: 30/11;
+            width:100%;
+            @media(max-width:880px){
+                aspect-ratio: 15/14;
+            }
+        }
+    </style>
+</section>
+
+
+
+
+<!--Explora tus juegos-->
+        <section class="whitetxt pt-5" id="juegos" ondragstart="return false;" oncontextmenu="return false" >
+ <div class="container">
+                <div class="heading-section col-md-12 text-center">
+                    <h2>Explora tus juegos</h2>
+                </div>
+
+                <div class="container">
+                    <div class="row">
+                        <div class="MultiCarousel" data-items="1,2,3,3" data-slide="1" id="MultiCarousel"  data-interval="1000">
+                            <div class="MultiCarousel-inner">
+                                <div class="item">
+                                    <div class="pad15">
+                                        <img src="images/juego/Pase01.png" alt="" class="img-fluid">
+                                        <p class="txtjuego">Lorem ipsum dolor, sit amet animi, quis possimus quisquam suscipit ipsam reiciendismo.</p>
+                                        <button class="btn-jugar" >JUGAR AHORA</button>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="pad15">
+                                        <img src="images/juego/Pase02.png" alt="" class="img-fluid">
+                                        <p class="txtjuego">Lipsum dolor, sit amet animi sit amet animi, quis possimus quisquam suscipit ipsam .</p>
+                                        <button class="btn-jugar" >JUGAR AHORA</button>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="pad15">
+                                        <img src="images/juego/Pase03.png" alt="" class="img-fluid">
+                                        <p class="txtjuego">Rem ipsum dolor, sit amet animi, quis possimus quisquam suscipit ipsam reiciendismo.</p>
+                                        <button class="btn-jugarunlock" >Desbloquéalo al alcanzar<br><b>2,000 Puntos PASE</b></button>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="pad15">
+                                        <img src="images/juego/Pase04.png" alt="" class="img-fluid">
+                                        <p class="txtjuego">Lomet animi, quis possimus quisquam suscipit ipsam reiciendismo.</p>
+                                        <button class="btn-jugarunlock" >Desbloquéalo al alcanzar<br><b>4,000 Puntos PASE</b></button>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="pad15">
+                                        <img src="images/juego/Pase05.png" alt="" class="img-fluid">
+                                        <p class="txtjuego">Lorem ipsum dolor, sit amet animi, quis possimus quisquam suscipit ipsam reiciendismo.</p>
+                                        <button class="btn-jugarunlock" >Desbloquéalo al alcanzar<br><b>6,000 Puntos PASE</b></button>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="pad15">
+                                        <img src="images/juego/Pase06.png" alt="" class="img-fluid">
+                                        <p class="txtjuego">Lorem ipsum dolor, sit amet animi, quis possimus quisquam suscipit ipsam reiciendismo.</p>
+                                        <button class="btn-jugarunlock" >Desbloquéalo al alcanzar<br><b>8,000 Puntos PASE</b></button>
+                                    </div>
+                                </div>
+                                
+                            </div>
+
+                            <button class="btn btn-primary leftLst"><</button> 
+                            <button class="btn btn-primary rightLst">></button><!-- -->
+                        </div>
+                    </div>
+
+                </div>
+                <div class="br-6"></div>
+            </div>
+        </section>
+    
+    <!-- movimientos -->
+    <section class=" mb-5" id="movimientos" >
+        <object data="images.svg" > </object>    
+           <div class="container">
+               <div class="heading-section-2 col-md-12 col-sm-12 text-center">
+                   <h2>Mis movimientos</h2>
+                   <h4>Recuerda tus viajes y ve tus avances</h4>
+               </div><!--end heading-section-->
+<div><img src="images/nivel/imagen.png" alt="" class="img-fluid d-block auto-mx"></div>
+<div class="heading-section-2 col-md-12 col-sm-12 text-center">
+    <h4>Mis últimos Movimientos</h4>
+</div><!--end heading-section-->
+
+               <div class="row justify-content-center text-center mt-5 " >
+    
+                   <div class="col-md-6 row no-gutters pb-3">   
+                       <div class="col-md-1 nivel-num">1</div>
+                   <div class="col-md-8 nivel-azul text-left">
+                       <p><span class="nivel-fecha">Enero 22</span><span class="nivel-fecha">12:31</span><br>
+                       <span class="nivel-lugar">Tlalpan</span><br>
+                       <span class="nivel-ubicacion">Monumento al Caminero - Entorno Ecatepec</span><br>
+                       <span class="nivel-autopista">Estacionamiento</span></p>
+                   </div>
+                   <div class="col-md-1 nivel-bicolor"></div>
+                   <div class="col-md-2 nivel-verde pb-3">
+                    <p><span class="nivel-puntosN">+100</span><br>  
+                    <span class="nivel-puntos ">puntos</span></p> 
+                   </div>
+                  </div>
+
+                  <div class="col-md-6 row no-gutters pb-3">   
+                    <div class="col-md-1 nivel-num">2</div>
+                <div class="col-md-8 nivel-azul text-left">
+                    <p><span class="nivel-fecha">Enero 24</span><span class="nivel-fecha">10:31</span><br>
+                    <span class="nivel-lugar">Puente de Ixtla</span><br>
+                    <span class="nivel-ubicacion">Monumento al Caminero - Entorno Ecatepec</span><br>
+                    <span class="nivel-autopista">Carretera</span></p>
+                </div>
+                <div class="col-md-1 nivel-bicolor"></div>
+                <div class="col-md-2 nivel-verde pb-3">
+                 <p><span class="nivel-puntosN">+120</span><br>  
+                 <span class="nivel-puntos">puntos</span></p> 
+                </div>
+               </div>
+
+               <div class="col-md-6 row no-gutters pb-3">   
+                <div class="col-md-1 nivel-num">3</div>
+            <div class="col-md-8 nivel-azul text-left">
+                <p><span class="nivel-fecha">Enero 28</span><span class="nivel-fecha">14:42</span><br>
+                <span class="nivel-lugar">Maxitúnel</span><br>
+                <span class="nivel-ubicacion">Monumento al Caminero - Entorno Ecatepec</span><br>
+                <span class="nivel-autopista">Estacionamiento</span></p>
+            </div>
+            <div class="col-md-1 nivel-bicolor"></div>
+            <div class="col-md-2 nivel-verde pb-3">
+             <p><span class="nivel-puntosN">+150</span><br>  
+             <span class="nivel-puntos">puntos</span></p> 
+            </div>
+           </div>
+
+           <div class="col-md-6 row no-gutters pb-3">   
+            <div class="col-md-1 nivel-num">4</div>
+        <div class="col-md-8 nivel-azul text-left">
+            <p><span class="nivel-fecha">Enero 30</span><span class="nivel-fecha">15:11</span><br>
+            <span class="nivel-lugar">Paso Morelos</span><br>
+            <span class="nivel-ubicacion">Monumento al Caminero - Entorno Ecatepec</span><br>
+            <span class="nivel-autopista">Autopista Urbana</span></p>
+        </div>
+        <div class="col-md-1 nivel-bicolor"></div>
+        <div class="col-md-2 nivel-verde pb-3">
+         <p><span class="nivel-puntosN">+200</span><br>  
+         <span class="nivel-puntos">puntos</span></p> 
+        </div>
+       </div>
+  
+              
+  
+                     </div> 
+           </div><!--container-->
+
+           <div class="container">
+            <div class="heading-section col-md-12 text-center">   
+                <div class="clearfix"></div>
+                <div class="col-md-12 current-points">
+                    Mi saldo en <span class="span-be">Puntos PASE </span> al día de hoy: <span id="ContentPlaceHolder1_ctl00_BalancePoints" class="span-current-points"><br>1500 Puntos PASE</span>
+                </div>
+                
+                <div class="dotted-space-2"></div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-2 col-md-2 col-sm-12 col-12 text-period">Periódo:</div>
+                    <div class="col-lg-8 col-md-10 col-sm-12 col-12 text-right">
+                        <div class="period-from">
+                            De: 
+                            <div class="from-select">
+                                <select name="ctl00$ContentPlaceHolder1$ctl00$DdlFrom" id="ContentPlaceHolder1_ctl00_DdlFrom" class="select">
+            <option value="-2">Octubre 2023</option>
+            <option value="-1">Noviembre 2023</option>
+            <option value="0">Diciembre 2023</option>
+            <option selected="selected" value="9">Enero 2024</option>
+    
+        </select>
+                            </div>
+                        </div>
+                        <div class="period-to">
+                            a: 
+                            <div class="to-select">
+                                <select name="ctl00$ContentPlaceHolder1$ctl00$DdlTo" id="ContentPlaceHolder1_ctl00_DdlTo" class="select">
+            <option value="9">Abril 2024</option>
+    
+        </select>
+                            </div>
+                        </div>
+                        <div class="period-button">
+                            <button id="BtnFilter" class="boton-filter">Buscar</button>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="container">
+                    <div class="row justify-content-center">
+  <div class="col-12">
+                            <div class="row justify-content-end">
+                                <div class='cont-btn-excel' id='BtnExport'>Exportar a Excel <i class='fa fa-file-excel-o'></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- /container -->
+            </div>
+             <div class="hr"></div>
+                  <div class="text-center">
+                    <h3>Detalle del periodo</h3>
+                  </div>
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Concepto</th>
+                        <th scope="col">Puntos</th>
+                        <th scope="col">Saldo</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td scope="col">22/01/2024</td>
+                        <td>Acumulación 1</td>
+                        <td>100</td>
+                        <td>100</td>
+                      </tr>
+                      <tr>
+                        <td scope="col">24/01/2024</td>
+                        <td>Acumulación 2</td>
+                        <td>100</td>
+                        <td>200</td>
+                      </tr>
+                      <tr>
+                        <td scope="col">28/01/2024</td>
+                        <td>Acumulación 3</td>
+                        <td>100</td>
+                        <td>300</td>
+                      </tr>
+                      <tr>
+                        <td scope="col">30/01/2024</td>
+                        <td>Acumulación 4</td>
+                        <td>100</td>
+                        <td>400</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="hr"></div>
+        </div><!-- /container --> 
+
+           <div class="container pt-5">
+            <div class="heading-section-2 col-md-12 col-sm-12 text-center">
+                <h2>Tu Nivel PASE Club es</h2>
+
+                <div class="pasecard"><h2>PASE EXPERTO</h2><br><h3 style="color: #fff;">Te faltan <b>40,000 Puntos Pase</b> para alcanzar el <b>Nivel PASE Maestro</b></h3></div>
+                
+             
+            <div class="pt-5">
+                <div style="width: 100%;  position: relative;">
+                    <div style="width:100%; overflow-x: auto;">
+                        <div style="width: 1800px; padding: 20px 80px 20px 20px;">
+                            <img src="extra/niveles.svg" class="tu nivel" style="width:100%; max-width:auto;">
+                        </div>
+                    </div>
+                    <div style="position: absolute; top:0; right:0; bottom:0; width: 10%; background:linear-gradient(to right, rgba(255,255,255,0), #fff);"></div>
+                </div>
+
+             </div>   
+
+
+
+             <div class="pt-5"><h3>¡Continua con tu ruta y sigue avanzando de Nivel!</h3></div>
+            </div><!--end heading-section-->
+           </div>
+       </section><!---->
+    
+    
+
+
+    <!-- Insignias -->
+  <section class=" whitetxt" id="insignias" >
+         <object data="images/bg/InsigniaPlecaTop.svg" > </object>    
+            <div class="container">
+                <div class="heading-section-2 col-md-12 col-sm-12 text-center">
+                    <h2>Insignias PASE Club</h2>
+                    <h4>Desbloquea nuevas insignias con tus Puntos Pase</h4>
+                </div><!--end heading-section-->
+                <div class="row justify-content-center text-center mt-5 " >
+     
+                    <div class="col-md-3 pik-insignia ">   
+                    <img src="images/insignias/insignia01.png" class="mx-auto pik-shadow">
+                    <div class="insignia-txt"><p><span class="insignia-txt1">Nómada</span><br>
+                    <span class="insignia-txt2">URBANO</span></p></div>
+                   </div>
+   
+                   <div class="col-md-3 pik-insignia">   
+                    <img src="images/insignias/insignia02.png" class="mx-auto pik-gray">
+                    <div class="centrado"><object data="images/insignias/lock-fill.svg" type="" width="14px"></object>Desbloquear<br><span class="small">4,000 Puntos Pase</span> </div> 
+                    <div class="insignia-txt"><p><span class="insignia-txt1">Maestro del</span><br>
+                    <span class="insignia-txt2">camino</span></p></div>
+                   </div>
+   
+                   <div class="col-md-3 pik-insignia">   
+                    <img src="images/insignias/insignia03.png" class="mx-auto pik-gray">
+                    <div class="centrado"><object data="images/insignias/lock-fill.svg" type="" width="14px"></object>Desbloquear<br><span class="small">6,000 Puntos Pase</span> </div> 
+                    <div class="insignia-txt"><p><span class="insignia-txt1">Explorador</span><br>
+                    <span class="insignia-txt2">intrépido</span></p></div>
+                   </div>
+   
+                   <div class="col-md-3 pik-insignia">   
+                    <img src="images/insignias/insignia04.png" class="mx-auto pik-gray">
+                    <div class="centrado"><object data="images/insignias/lock-fill.svg" type="" width="14px"></object>Desbloquear<br><span class="small">8,000 Puntos Pase</span> </div> 
+                    <div class="insignia-txt"><p><span class="insignia-txt1">Conquistador del</span><br>
+                    <span class="insignia-txt2">sendero</span></p></div>
+                   </div>
+
+                   <div class="col-md-3 pik-insignia">   
+                    <img src="images/insignias/insignia05.png" class="mx-auto pik-gray">
+                    <div class="centrado"><object data="images/insignias/lock-fill.svg" type="" width="14px"></object>Desbloquear<br><span class="small">10,000 Puntos Pase</span> </div> 
+                    <div class="insignia-txt">
+                        <p><span class="insignia-txt1">Piloto</span><br>
+                    <span class="insignia-txt2">virtuoso</span></p></div>
+                   </div>
+
+                   <div class="col-md-3 pik-insignia">   
+                    <img src="images/insignias/insignia06.png" class="mx-auto pik-gray">
+                    <div class="centrado"><object data="images/insignias/lock-fill.svg" type="" width="14px"></object>Desbloquear<br><span class="small">12,000 Puntos Pase</span> </div> 
+                    <div class="insignia-txt">
+                    <p><span class="insignia-txt1">Viajero</span><br>
+                    <span class="insignia-txt2">global</span></p></div>
+                   </div>
+                 
+                   <div class="col-md-3 pik-insignia">   
+                    <img src="images/insignias/insignia07.png" class="mx-auto pik-gray">
+                    <div class="centrado"><object data="images/insignias/lock-fill.svg" type="" width="14px"></object>Desbloquear<br><span class="small">14,000 Puntos Pase</span> </div> 
+                    <div class="insignia-txt">
+                        <p><span class="insignia-txt1">Aventurero</span><br>
+                    <span class="insignia-txt2">local</span></p></div>
+                   </div>
+   
+                      </div> 
+            </div><!--container-->
+             
+        </section><!---->
+
+        <section style="line-height: 0; margin-bottom: 0 !important;">
+            <iframe style="width:100%; aspect-ratio: 10/3;" src="extra/banner/rightmove.html" scrolling="no"></iframe>
+        </section>
+
+
+        <!-- Mi perfil-->
+
+<section id="miperfil" class="whitetxt" style="margin-top: 0!important;">
+
+
+    <div class="container pb-5">
+        <div class="heading-section col-md-12 text-center ">
+            <h2>Mi Perfil</h2>
+        </div>
+        <div class="row justify-content-center text-center mt-5 " >
+        
+            <div class="row justify-content-center" id="register_container">
+                <div class="col">
+                    <div class="title-card"></div>
+                    <!----Nombre-->
+                    <div class="form-group row">
+                        <label  class="col-form-label col-md-5 register-label">Nombre:<span class="req">*</span></label>
+                        <div class="col-md-7">
+                            <input name="ctl00$Register$TbxName" type="text" maxlength="30" id="Register_TbxName" class="form-control" placeholder="Nombre" />
+                            <span id="Register_RequiredFieldValidator2" class="error_required" style="display:none;">Debes escribir tu nombre</span>
+                            <span id="Register_RegularExpressionValidator2" class="error_required" style="display:none;">Asegurate que sean sólo letras</span>
+                        </div>
+                    </div>
+                    <!---->
+                    <!----Apellido Paterno-->
+                    <!---->
+                    <div class="form-group row">
+                        <label  class="col-form-label col-md-5 register-label">Apellido paterno:<span class="req">*</span></label>
+                        <div class="col-md-7">
+                            <input name="ctl00$Register$TbxLastName" type="text" maxlength="30" id="Register_TbxLastName" class="form-control" placeholder="Apellido Paterno" />
+                            <span id="Register_RequiredFieldValidator3" class="error_required" style="display:none;">Debes escribir tu apellido paterno</span>
+                            <span id="Register_RegularExpressionValidator7" class="error_required" style="display:none;">Asegurate que sean sólo letras</span>
+                        </div>
+                    </div>
+                
+                    <!---->
+    
+                   <!----Fecha de nacimiento-->
+                   <div class="form-group row">
+                    <label  class="col-form-label col-md-5 register-label">Fecha de nacimiento:</label>
+                    <div class="col-md-7 fechanac">
+                        <div class="row">
+                            <div class="col-4">
+                                <select name="ctl00$Register$ddlDay" id="Register_ddlDay" class="form-control">
+                                    <option value="-1">Día</option>
+                                    <!-- Loop to generate day options -->
+                                    <script>
+                                        for (let i = 1; i <= 31; i++) {
+                                            document.write(`<option value="${i}">${i}</option>`);
+                                        }
+                                    </script>
+                                </select>
+                            </div>
+                            <div class="col-4">
+                               <select name="ctl00$Register$ddlMonth" id="Register_ddlMonth" class="form-control">
+                                <option value="-1">Mes</option>
+                                <!-- Loop to generate month options -->
+                                <script>
+                                    const months = [
+                                        { value: "01", name: "Enero" },
+                                        { value: "02", name: "Febrero" },
+                                        { value: "03", name: "Marzo" },
+                                        { value: "04", name: "Abril" },
+                                        { value: "05", name: "Mayo" },
+                                        { value: "06", name: "Junio" },
+                                        { value: "07", name: "Julio" },
+                                        { value: "08", name: "Agosto" },
+                                        { value: "09", name: "Septiembre" },
+                                        { value: "10", name: "Octubre" },
+                                        { value: "11", name: "Noviembre" },
+                                        { value: "12", name: "Diciembre" }
+                                    ];
+                                    
+                                    months.forEach(month => {
+                                        document.write(`<option value="${month.value}">${month.name}</option>`);
+                                    });
+                                </script>
+                            </select>
+                            </div>
+                            <div class="col-4">
+                                <select name="ctl00$Register$ddlAnio" id="Register_ddlAnio" class="form-control">
+                                    <option value="-1">Año</option>
+                                    <!-- Loop to generate year options -->
+                                    <script>
+                                        for (let year = 2001; year >= 1913; year--) {
+                                            document.write(`<option value="${year}">${year}</option>`);
+                                        }
+                                    </script>
+                                </select>
+                            </div>
+                        </div>
+                        <span id="Register_RequiredFieldValidator13" class="error_required" style="display:none;">Seleccione su día de nacimiento</span>
+                        <span id="Register_RequiredFieldValidator22" class="error_required" style="display:none;">Seleccione su mes de nacimiento</span>
+                        <span id="Register_RequiredFieldValidator14" class="error_required" style="display:none;">Seleccione su año de nacimiento</span>
+                    </div>
+                </div>
+                <!---->
+    
+                         <!----Género-->
+                         <div class="form-group row">
+                            <label  class="col-form-label col-md-5 register-label">Género:<span class="req">*</span></label>
+                            <div class="col-md-7 fechanac">
+                                <div class="row">
+    
+                                    <div class="col-12">
+                                        <select name="ctl00$Register$ddlMonth" id="Register_ddlMonth" class="form-control">
+            <option value="-1">Género</option>
+            <option value="01">Mujer</option>
+            <option value="02">Hombre</option>
+            <option value="03">Prefiero no decirlo</option>
+    </select>
+                                    </div>
+    
+                                </div>
+    
+                            </div>
+                        </div>
+                        <!---->
+    
+                <!----Email-->
+                <div class="form-group row">
+                    <label id="label_email" class="col-form-label col-md-5 register-label">Correo electrónico:<span class="req">*</span></label>
+                    <div class="col-md-7">
+                        <input name="ctl00$Register$TbxEmail" type="text" maxlength="50" id="Register_TbxEmail" class="form-control mail" placeholder="Correo electrónico" autocomplete="off" oncopy="return false" onpaste="return false" />
+                        <span id="Register_RegularExpressionValidator3" class="error_required" style="display:none;">El formato del correo electrónico no es válido</span>
+                        <span id="Register_RequiredFieldValidator4" class="error_required" style="display:none;">Debes escribir tu correo</span>
+                        <div id="Duplicated_Email" class="error_required_ajax">El correo ya existe, favor de ingresar uno diferente</div>
+                        <input type="hidden" name="ctl00$Register$HfEmailExistence" id="Register_HfEmailExistence" />
+                    </div>
+                </div>
+                <!---->
+    
+                    <!---Contraseña-->
+                        <div class="form-group row">
+                            <label  class="col-form-label col-md-5 register-label">Contraseña:<span class="req">*</span></label>
+                            <div class="col-md-7">
+                                <input name="ctl00$Register$TbxPassword" type="password" maxlength="40" id="Register_TbxPassword" class="form-control" placeholder="Contraseña" /> <div class="icon-eye"></div>
+                                <span id="Register_RequiredFieldValidator9" class="error_required" style="display:none;">La contraseña es requerida</span>
+                                <span id="Register_RegularExpressionValidator6" class="error_required" style="display:none;">La contraseña debe ser de mínimo 6 caracteres</span>
+                                <div class="br-3"></div>
+                           </div>
+                        </div>
+                    <!---->
+    
+                    <!---info-->
+                    <div class="form-group row">
+                        <div class="col-md-12 col-sm-12">
+                            <span class="req">*Información requerida</span>
+                        </div>
+                    </div>
+                    <!---->
+    
+                    <!--ckeckboxs-->
+    <div class="form-group text-center">
+                        <input type="submit" name="ctl00$Register$BtnSave" value="Actualizar" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$Register$BtnSave&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" id="Register_BtnSave" class="boton" />
+                    </div>
+    
+                    
+                    
+                </div>
+            </div><!--form-horizontal-->
+                 </div> 
+    </div>
+    </section>
+    
+    <!-- Datos de acceso-->
+    
+    <section id="datosdeacceso" class="whitetxt" style="margin-top: -30px;">
+    
+    
+        <div class="container pb-5 ">
+            <div class="heading-section col-md-12 text-center">
+                <h2>Datos de Acceso</h2>
+            </div>
+            <div class="row justify-content-center " id="register_container">
+                <div class="col">
+                    <div class="title-card"></div>
+    
+                    <!----Email-->
+                    <div class="form-group row">
+                        <label id="label_email" class="col-form-label col-md-5 register-label">Correo electrónico:<span class="req">*</span></label>
+                        <div class="col-md-5">
+                            <input name="ctl00$Register$TbxEmail" type="text" maxlength="50" id="Register_TbxEmail" class="form-control mail" placeholder="Correo electrónico" autocomplete="off" oncopy="return false" onpaste="return false" />
+                            <span id="Register_RegularExpressionValidator3" class="error_required" style="display:none;">El formato del correo electrónico no es válido</span>
+                            <span id="Register_RequiredFieldValidator4" class="error_required" style="display:none;">Debes escribir tu correo</span>
+                            <div id="Duplicated_Email" class="error_required_ajax">El correo ya existe, favor de ingresar uno diferente</div>
+                            <input type="hidden" name="ctl00$Register$HfEmailExistence" id="Register_HfEmailExistence" />
+                        </div>
+                    </div>
+                    <!---->
+                                        <!----password-->
+                    <div class="form-group row">
+                        <label id="label_email" class="col-form-label col-md-5 register-label">Contraseña:<span class="req">*</span></label>
+                        <div class="col-md-5">
+                            <input name="ctl00$Register$TbxEmail" type="password" maxlength="50" id="Register_TbxEmail" class="form-control mail" placeholder="Password" autocomplete="off" oncopy="return false" onpaste="return false" />
+                            <span id="Register_RegularExpressionValidator3" class="error_required" style="display:none;">El formato del correo electrónico no es válido</span>
+                            <span id="Register_RequiredFieldValidator4" class="error_required" style="display:none;">Debes escribir tu correo</span>
+                            <div id="Duplicated_Email" class="error_required_ajax">El correo ya existe, favor de ingresar uno diferente</div>
+                            <input type="hidden" name="ctl00$Register$HfEmailExistence" id="Register_HfEmailExistence" />
+                        </div>
+                    </div>
+                    <!---->
+    
+                    <div class="form-group text-center">
+                        <input type="submit" name="ctl00$Register$BtnSave" value="Editar" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$Register$BtnSave&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" id="Register_BtnSave" class="boton" />
+                    </div>
+                    
+                </div>
+            </div><!--form-horizontal-->
+        </div>
+        
+        </section>
+
+
+
+    <div class="modal fade" id="ModalError">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <br />
+                    <center><img src="images/logo/logo_header_black.svg" width="330" alt=""></center><br />
+                    <br/>
+                    <div class="cont_success_linkedcards">
+                        <p class="cont_text_linkedcards" id="errorMessage"></p>
+                    </div>
+                    <br/>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+
+
+
+        <!--Felicidades:-->
+        <div class="modal fade" id="ModalSuccess">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body text-center">
+                        <div class="cont_img_register_2" ondragstart="return false;" oncontextmenu="return false;">
+                            <img src="images/iconos/correct-registry.png" />
+                        </div>
+                        <div class="cont_user_registered">
+                            <br />
+                            <p class="text-center"><span class="span_congrats">¡Felicidades!</span><br />Tu cuenta como
+                                socio de <span class="span-be">PASE Club</span> ha sido creada</p><br />
+                            A partir de este momento tu cuenta está activa para acumulación y canje,
+                            además, podrás actualizar tus datos, consultar tu saldo, tu estado de cuenta y mucho
+                            más.<br />
+                            Recuerda descargar la APP <span class="span-be">PASE Club</span>, disponible
+                            para <strong>iOS</strong> y <strong>Android</strong>, para que puedas tener tu <span
+                                class="span-be">Tarjeta PASE Club</span> en tu celular.
+                        </div>
+                        <input type="submit" name="ctl00$Register$BtnSignIn" value="Acceder a mi cuenta"
+                            id="Register_BtnSignIn" class="btn_signin_register" onclick="return false;" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="ModalError">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body text-center">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <br />
+                        <center><img src="images/logo/logo_header.svg" width="330" alt=""></center><br />
+                        <br />
+                        <div class="cont_success_linkedcards">
+                            <p class="cont_text_linkedcards" id="errorMessage"></p>
+                        </div>
+                        <br />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="container-fluid" style="background: #104292;">
+            <div class="container" ondragstart="return false;" oncontextmenu="return false;">
+                <div class="text-right">
+                    <a href="https://www.bluepureloyalty.mx/" target="_blank"><img src="images/home/PoweredByBlue.png"
+                            id="poweredLogo" class="powered" /></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid footermodalint">
+            <div class="">
+                <ul>
+                    <li><a href="#terminos" data-toggle="modal">Términos y Condiciones</a></li>
+                    <li>|</li>
+                    <li><a href="#preguntas" data-toggle="modal">Preguntas Frecuentes</a></li>
+                    <li>|</li>
+                    <li><a href="#privacidad" data-toggle="modal">Aviso de Privacidad</a></li>
+                    <li>|</li>
+                    <li><a href="mailto:info@paseclub.mx">info@paseclub.mx</a></li>
+                </ul>
+            </div>
+
+
+
+        </div>
+
+
+        <div class="footerb container-fluid" ondragstart="return false;" oncontextmenu="return false;">
+            <div class="text-center">
+                <center><a href="https://www.bluepureloyalty.mx/" target="_blank"><img src="images/home/icono_blue.png"
+                            alt="" /></a></center>
+            </div>
+            <div class="text-center">
+                <a href="https://www.bluepureloyalty.mx/" class="bluemx" target="_blank">bluepureloyalty.com</a>
+            </div>
+        </div>
+
+        <div class="main_loader">
+            <div class="loader-bg"></div>
+            <div class="loader animated bounceIn" style="animation-iteration-count: infinite;">
+                <img src="images/logo/logo_header.svg" />
+            </div>
+        </div>
+
+        <!--TÉRMINOS Y CONDICIONES-->
+        <div class="modal fade" id="terminos">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title"><strong>TÉRMINOS Y CONDICIONES DE PASE Club</strong></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body text-black">
+                        <div class="text-justify">
+                            <strong>Definiciones</strong><br />
+                            Para PASE Club los términos establecidos a continuación tendrán los siguientes
+                            significados:
+                        </div>
+                        <div class="text-justify">
+                            <strong>a) PASE Club:</strong><br />
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur molestiae explicabo
+                            quasi amet, praesentium vel recusandae nisi totam deleniti incidunt tenetur dolores,
+                            doloribus, esse aut necessitatibus, debitis. Ipsum, dicta, quibusdam.<br />
+                            <strong>b) PASE Club:</strong><br />
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, voluptatum. Deleniti commodi
+                            quia natus at ea, veniam id cumque, tenetur velit ut iusto sint beatae culpa? Impedit in
+                            maxime amet..<br />
+                            <strong>c) Términos y Condiciones del programa PASE Club:</strong><br />
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, inventore quas ipsum nemo
+                            neque adipisci, quo atque molestiae enim quasi amet reiciendis nostrum, a cumque aperiam
+                            quos tenetur quia accusantium! PASE Club.<br />
+                            <strong>d) Acuerdo de confidencialidad:</strong><br />
+                            La información de cada Socio se manejará con carácter de confidencial exclusivamente para
+                            que reciba información y beneficios del programa PASE Club.<br />
+                            <strong>e) Acumulación de PASE Club:</strong><br />
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim praesentium iure ratione rem
+                            modi dolore doloribus adipisci, dolorem optio distinctio. Distinctio eum, quae adipisci.
+                            Minus optio debitis, officia commodi veritatis!<br />
+                            <strong>f) Beneficios PASE Club:</strong><br />
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque distinctio esse velit
+                            tempore beatae, quaerat adipisci natus laboriosam. Veniam excepturi tenetur qui at libero,
+                            id, sapiente voluptatem dolor blanditiis dolores. como Beneficios PASE Club o como
+                            Beneficios.<br />
+                        </div>
+                        <br />
+                        <center><button type="button" class="btn-close" data-dismiss='modal'>Cerrar</button></center>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /TÉRMINOS Y CONDICIONES-->
+
+ <!-- PREGUNTAS FRECUENTES -->
+ <div class="modal fade" id="preguntas">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"><strong>PREGUNTAS FRECUENTES</strong></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-black">
+                <div id="accordion">
+                  <div class="card">
+                    <div class="card-header" id="headingOne">
+                      <h5 class="mb-0">
+                        <a href="#!" class="btn btn-link collapsed acc-modal-item" data-toggle="collapse" data-target="#Question1" aria-expanded="false" aria-controls="collapseOne">
+                            1. ¿Qué es el programa PASE Club?
+                        </a>
+                      </h5>
+                    </div>
+
+                    <div id="Question1" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                      <div class="card-body acc-modal-text">
+                        PASE Club es un programa de lealtad diseñado lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic quae commodi quia consequatur culpa nesciunt perferendis laborum, libero, minus a, accusamus, quasi. Itaque libero earum, cum expedita sint, quas dignissimos.
+                      </div>
+                    </div>
+                  </div>
+                
+                  <div class="card">
+                    <div class="card-header" id="headingThree">
+                      <h5 class="mb-0">
+                        <a href="#!" class="btn btn-link collapsed acc-modal-item" data-toggle="collapse" data-target="#Question3" aria-expanded="false" aria-controls="collapseThree">
+                          2. ¿Cómo puedo formar parte de PASE Club?
+                        </a>
+                      </h5>
+                    </div>
+                    <div id="Question3" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                      <div class="card-body acc-modal-text">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore cumque hic possimus harum incidunt excepturi corporis cum, quam porro, voluptatibus doloribus. Nihil obcaecati et perferendis eligendi ducimus distinctio, minus minima.
+                      </div>
+                    </div>
+                  </div>
+
+                    <div class="card">
+                    <div class="card-header" id="headingFour">
+                      <h5 class="mb-0">
+                        <a href="#!" class="btn btn-link collapsed acc-modal-item" data-toggle="collapse" data-target="#Question4" aria-expanded="false" aria-controls="collapseFour">
+                          3. ¿Cómo puedo acumular PASE Club  en mi cuenta?
+                        </a>
+                      </h5>
+                    </div>
+                    <div id="Question4" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+                      <div class="card-body acc-modal-text">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus alias id, molestias mollitia neque dolores magni maxime veniam fuga nulla, deleniti nihil sit aperiam rem doloremque officiis, asperiores maiores culpa.
+                    </div>
+                    </div>
+                  </div>
+
+                    
+
+                    <div class="card">
+                    <div class="card-header" id="headingSix">
+                      <h5 class="mb-0">
+                        <a href="#!" class="btn btn-link collapsed acc-modal-item" data-toggle="collapse" data-target="#Question6" aria-expanded="false" aria-controls="collapseSix">
+                          4. ¿Para qué utilizo mis PASE Club ?
+                        </a>
+                      </h5>
+                    </div>
+                    <div id="Question6" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
+                      <div class="card-body acc-modal-text">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error placeat harum aperiam. Esse voluptas rerum, labore magni facere voluptatibus aliquam optio facilis dolor, molestiae repellendus obcaecati ex earum molestias nam.
+                      </div>
+                    </div>
+                  </div>
+
+                    <div class="card">
+                    <div class="card-header" id="headingSeven">
+                      <h5 class="mb-0">
+                        <a href="#!" class="btn btn-link collapsed acc-modal-item" data-toggle="collapse" data-target="#Question7" aria-expanded="false" aria-controls="collapseSeven">
+                          5. ¿Cuánto valen mis PASE Club ?
+                        </a>
+                      </h5>
+                    </div>
+                    <div id="Question7" class="collapse" aria-labelledby="headingSeven" data-parent="#accordion">
+                      <div class="card-body acc-modal-text">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor error sed doloribus eveniet beatae laudantium, at doloremque fugit, ducimus quos quo non neque dicta quis! Veritatis harum, officiis vitae magnam.
+                      </div>
+                    </div>
+                  </div>
+
+                    <div class="card">
+                    <div class="card-header" id="headingEight">
+                      <h5 class="mb-0">
+                        <a href="#!" class="btn btn-link collapsed acc-modal-item" data-toggle="collapse" data-target="#Question8" aria-expanded="false" aria-controls="collapseEight">
+                          6. ¿Puedo cambiar mis PASE Club  por dinero?
+                        </a>
+                      </h5>
+                    </div>
+                    <div id="Question8" class="collapse" aria-labelledby="headingEight" data-parent="#accordion">
+                      <div class="card-body acc-modal-text">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem placeat aut possimus autem, sit, asperiores, ab libero obcaecati rerum qui quasi officiis atque at dolor sapiente ad reiciendis voluptatum adipisci?
+                      </div>
+                    </div>
+                  </div>
+
+
+                    <div class="card">
+                    <div class="card-header" id="headingTwelve">
+                      <h5 class="mb-0">
+                        <a href="#!" class="btn btn-link collapsed acc-modal-item" data-toggle="collapse" data-target="#Question12" aria-expanded="false" aria-controls="collapseTwelve">
+                          7. ¿Los PASE Club  tienen vigencia?
+                        </a>
+                      </h5>
+                    </div>
+                    <div id="Question12" class="collapse" aria-labelledby="headingTwelve" data-parent="#accordion">
+                      <div class="card-body acc-modal-text">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam accusamus facere sed vitae non quidem aliquam tenetur quo alias harum adipisci, doloribus perferendis natus mollitia molestiae ipsam esse quia architecto?
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+                <br />
+                <center><button type="button" class="btn-close" data-dismiss='modal'>Cerrar</button></center>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /PREGUNTAS FRECUENTES -->
+       
+        <!-- AVISO DE PRIVACIDAD -->
+        <div class="modal fade" id="privacidad">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title"><strong>AVISO DE PRIVACIDAD</strong></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body text-black">
+                        <div class="text-justify">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis eius doloremque laborum
+                            provident tempore quos qui in eos dolor atque. Aliquam nam obcaecati sed. Repudiandae alias,
+                            quis ab! Itaque, cum.<br />
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis eius doloremque laborum
+                            provident tempore quos qui in eos dolor atque. Aliquam nam obcaecati sed. Repudiandae alias,
+                            quis ab! Itaque, cum.<br />
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis eius doloremque laborum
+                            provident tempore quos qui in eos dolor atque. Aliquam nam obcaecati sed. Repudiandae alias,
+                            quis ab! Itaque, cum.<br />
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis eius doloremque laborum
+                            provident tempore quos qui in eos dolor atque. Aliquam nam obcaecati sed. Repudiandae alias,
+                            quis ab! Itaque, cum.<br />
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis eius doloremque laborum
+                            provident tempore quos qui in eos dolor atque. Aliquam nam obcaecati sed. Repudiandae alias,
+                            quis ab! Itaque, cum.<br />
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis eius doloremque laborum
+                            provident tempore quos qui in eos dolor atque. Aliquam nam obcaecati sed. Repudiandae alias,
+                            quis ab! Itaque, cum.<br />
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis eius doloremque laborum
+                            provident tempore quos qui in eos dolor atque. Aliquam nam obcaecati sed. Repudiandae alias,
+                            quis ab! Itaque, cum.<br />
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis eius doloremque laborum
+                            provident tempore quos qui in eos dolor atque. Aliquam nam obcaecati sed. Repudiandae alias,
+                            quis ab! Itaque, cum.<br />
+                        </div>
+
+                        <br />
+                        <center><button type="button" class="btn-close" data-dismiss='modal'>Cerrar</button></center>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /AVISO DE PRIVACIDAD -->
+
+    </form>
+    <script src="js/vendor/jquery-1.11.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+    <script src="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js" type="text/javascript"></script>
+    <!--Google Maps-->
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHNltjje0TvgY_zorprcu5x5FgePMO168&callback=GetGeolocation"
+        async defer></script>
+
+    <script type="text/javascript">
+
+        $("body").keypress(function (event) {
+            if (event.which == 13) {
+                event.preventDefault();
+            }
+        });
+
+    </script>
+
+<script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+<script>$(document).ready(function () {
+    var itemsMainDiv = ('.MultiCarousel');
+    var itemsDiv = ('.MultiCarousel-inner');
+    var itemWidth = "";
+
+    $('.leftLst, .rightLst').click(function () {
+        var condition = $(this).hasClass("leftLst");
+        if (condition)
+            click(0, this);
+        else
+            click(1, this)
+    });
+
+    ResCarouselSize();
+
+
+
+
+    $(window).resize(function () {
+        ResCarouselSize();
+    });
+
+    //this function define the size of the items
+    function ResCarouselSize() {
+        var incno = 0;
+        var dataItems = ("data-items");
+        var itemClass = ('.item');
+        var id = 0;
+        var btnParentSb = '';
+        var itemsSplit = '';
+        var sampwidth = $(itemsMainDiv).width();
+        var bodyWidth = $('body').width();
+        $(itemsDiv).each(function () {
+            id = id + 1;
+            var itemNumbers = $(this).find(itemClass).length;
+            btnParentSb = $(this).parent().attr(dataItems);
+            itemsSplit = btnParentSb.split(',');
+            $(this).parent().attr("id", "MultiCarousel" + id);
+
+
+            if (bodyWidth >= 1200) {
+                incno = itemsSplit[3];
+                itemWidth = sampwidth / incno;
+            }
+            else if (bodyWidth >= 992) {
+                incno = itemsSplit[2];
+                itemWidth = sampwidth / incno;
+            }
+            else if (bodyWidth >= 768) {
+                incno = itemsSplit[1];
+                itemWidth = sampwidth / incno;
+            }
+            else {
+                incno = itemsSplit[0];
+                itemWidth = sampwidth / incno;
+            }
+            $(this).css({ 'transform': 'translateX(0px)', 'width': itemWidth * itemNumbers });
+            $(this).find(itemClass).each(function () {
+                $(this).outerWidth(itemWidth);
+            });
+
+            $(".leftLst").addClass("over");
+            $(".rightLst").removeClass("over");
+
+        });
+    }
+
+
+    //this function used to move the items
+    function ResCarousel(e, el, s) {
+        var leftBtn = ('.leftLst');
+        var rightBtn = ('.rightLst');
+        var translateXval = '';
+        var divStyle = $(el + ' ' + itemsDiv).css('transform');
+        var values = divStyle.match(/-?[\d\.]+/g);
+        var xds = Math.abs(values[4]);
+        if (e == 0) {
+            translateXval = parseInt(xds) - parseInt(itemWidth * s);
+            $(el + ' ' + rightBtn).removeClass("over");
+
+            if (translateXval <= itemWidth / 2) {
+                translateXval = 0;
+                $(el + ' ' + leftBtn).addClass("over");
+            }
+        }
+        else if (e == 1) {
+            var itemsCondition = $(el).find(itemsDiv).width() - $(el).width();
+            translateXval = parseInt(xds) + parseInt(itemWidth * s);
+            $(el + ' ' + leftBtn).removeClass("over");
+
+            if (translateXval >= itemsCondition - itemWidth / 2) {
+                translateXval = itemsCondition;
+                $(el + ' ' + rightBtn).addClass("over");
+            }
+        }
+        $(el + ' ' + itemsDiv).css('transform', 'translateX(' + -translateXval + 'px)');
+    }
+
+    //It is used to get some elements from btn
+    function click(ell, ee) {
+        var Parent = "#" + $(ee).parent().attr("id");
+        var slide = $(Parent).attr("data-slide");
+        ResCarousel(ell, Parent, slide);
+    }
+
+});</script>
+
+</body>
+
+</html>
