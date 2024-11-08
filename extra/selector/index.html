@@ -1,59 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Selector</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
-          theme: {
-            extend: {
-              colors: {
-                colg: '#104292',
-                colg2: '#71B023',
-                colb: '#060708',
-                colb2: '#0b95ff',
-                coly: '#81c443',
-                colg3: '#f2f2f2',
-                colw: '#f5f5f5',
-                bluemx: '#8cb7e8',
-              },
-              fontFamily: {
-                    montserrat: ['Montserrat', 'sans-serif'],
-                },
+            theme: {
+                extend: {
+                    colors: {
+                        colg: '#104292',
+                        colg2: '#71B023',
+                        colb: '#060708',
+                        colb2: '#0b95ff',
+                        coly: '#81c443',
+                        colg3: '#f2f2f2',
+                        colw: '#f5f5f5',
+                        bluemx: '#8cb7e8',
+                    },
+                    fontFamily: {
+                        montserrat: ['Montserrat', 'sans-serif'],
+                    },
+                }
             }
-          }
         }
-      </script>
-      <style>
-        .mytag{  aspect-ratio: 24/13; }
-        .mytag-content{ width: 100%; aspect-ratio: 24/13; mask: url('tagshape.svg'); -webkit-mask: url('tagshape.svg'); mask-size: contain; -webkit-mask-size: contain; background-image: linear-gradient(#21398c, #415cb5); }
-      </style>
+    </script>
+    <style>
+        .mytag {
+            aspect-ratio: 24/13;
+        }
+
+        .mytag-content {
+            width: 100%;
+            aspect-ratio: 24/13;
+            mask: url('tagshape.svg');
+            -webkit-mask: url('tagshape.svg');
+            mask-size: contain;
+            -webkit-mask-size: contain;
+            background-image: linear-gradient(#21398c, #415cb5);
+        }
+    </style>
 </head>
+
 <body class="bg-colg">
     <div id="app" class="montserrat container mx-auto px-5 py-20">
         <div class="flex flex-wrap md:grid md:grid-cols-4 items-center gap-5 md:gap-0">
             <div class="grow text-center text-white relative md:order-1 order-2">
                 <button class="rounded-full bg-colg2 p-2  hover:shadow-lg hover:bg-white" @click="popavatar = true">
-                    <div class="rounded-full bg-white p-3 flex justify-center items-center border-4 border-black aspect-square hover:shadow-inner hover:border-colg">
-                        <svg width="35" height="29" viewBox="0 0 35 29" fill="none" xmlns="http://www.w3.org/2000/svg"> <path fill-rule="evenodd" clip-rule="evenodd" d="M24.0865 0C25.0613 3.2289e-05 26.0169 0.26464 26.8461 0.764182C27.6754 1.26372 28.3456 1.97847 28.7816 2.82835L31.2071 7.55535C31.6341 7.38476 32.0541 7.20053 32.4671 7.00265C32.8825 6.80041 33.3632 6.76731 33.8037 6.91064C34.2441 7.05396 34.6081 7.36196 34.8155 7.76688C35.023 8.17181 35.0569 8.64048 34.9099 9.06981C34.7629 9.49913 34.4469 9.85394 34.0315 10.0562C33.6109 10.2387 33.188 10.4161 32.7628 10.5884L34.4445 13.8688C34.8095 14.5801 34.9995 15.3645 34.9993 16.1598V20.4706C35.0004 21.1908 34.845 21.903 34.5434 22.5605C34.2417 23.2179 33.8007 23.8056 33.2493 24.2849V26.4412C33.2493 27.1198 32.9727 27.7707 32.4805 28.2505C31.9882 28.7304 31.3205 29 30.6244 29C29.9282 29 29.2605 28.7304 28.7682 28.2505C28.276 27.7707 27.9994 27.1198 27.9994 26.4412V25.5882H6.99985V26.4412C6.99985 27.1198 6.7233 27.7707 6.23103 28.2505C5.73875 28.7304 5.07109 29 4.37491 29C3.67873 29 3.01106 28.7304 2.51879 28.2505C2.02652 27.7707 1.74996 27.1198 1.74996 26.4412V24.2849C0.675486 23.3467 0 21.9854 0 20.4706V16.1581C0.000327031 15.364 0.190249 14.5808 0.554738 13.8705L2.22245 10.6157C1.80071 10.4417 1.38247 10.2575 0.97123 10.0579C0.557943 9.85302 0.243787 9.49805 0.0964801 9.06949C-0.0508266 8.64094 -0.0194858 8.17312 0.183746 7.76688C0.286397 7.56632 0.428588 7.38744 0.602191 7.24047C0.775795 7.09351 0.977408 6.98133 1.19551 6.91036C1.41361 6.83938 1.64392 6.811 1.87327 6.82684C2.10263 6.84267 2.32654 6.90241 2.5322 7.00265C2.94519 7.20223 3.36693 7.38476 3.79217 7.55535L6.21762 2.83006C6.65345 1.97986 7.32354 1.26476 8.15281 0.764908C8.98209 0.265054 9.93777 0.00019069 10.9128 0H24.0865ZM9.6248 15.3529C8.92862 15.3529 8.26095 15.6225 7.76868 16.1024C7.27641 16.5823 6.99985 17.2331 6.99985 17.9118C6.99985 18.5904 7.27641 19.2413 7.76868 19.7211C8.26095 20.201 8.92862 20.4706 9.6248 20.4706C10.321 20.4706 10.9886 20.201 11.4809 19.7211C11.9732 19.2413 12.2497 18.5904 12.2497 17.9118C12.2497 17.2331 11.9732 16.5823 11.4809 16.1024C10.9886 15.6225 10.321 15.3529 9.6248 15.3529ZM25.3745 15.3529C24.6783 15.3529 24.0106 15.6225 23.5184 16.1024C23.0261 16.5823 22.7495 17.2331 22.7495 17.9118C22.7495 18.5904 23.0261 19.2413 23.5184 19.7211C24.0106 20.201 24.6783 20.4706 25.3745 20.4706C26.0706 20.4706 26.7383 20.201 27.2306 19.7211C27.7229 19.2413 27.9994 18.5904 27.9994 17.9118C27.9994 17.2331 27.7229 16.5823 27.2306 16.1024C26.7383 15.6225 26.0706 15.3529 25.3745 15.3529ZM24.0865 3.41176H10.9128C10.6247 3.41172 10.3412 3.48099 10.0872 3.61341C9.83319 3.74583 9.61666 3.93732 9.4568 4.17088L9.3483 4.35512L7.12585 8.68465C9.83479 9.47618 13.4852 10.2353 17.4996 10.2353C21.2481 10.2353 24.6762 9.57341 27.3169 8.84159L27.8717 8.68465L25.651 4.35512C25.5222 4.10404 25.3318 3.88782 25.0968 3.72564C24.8617 3.56346 24.5892 3.46034 24.3035 3.42541L24.0882 3.41176H24.0865Z" fill="#8BB718"/> </svg>
+                    <div
+                        class="rounded-full bg-white p-3 flex justify-center items-center border-4 border-black aspect-square hover:shadow-inner hover:border-colg">
+                        <svg width="35" height="29" viewBox="0 0 35 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M24.0865 0C25.0613 3.2289e-05 26.0169 0.26464 26.8461 0.764182C27.6754 1.26372 28.3456 1.97847 28.7816 2.82835L31.2071 7.55535C31.6341 7.38476 32.0541 7.20053 32.4671 7.00265C32.8825 6.80041 33.3632 6.76731 33.8037 6.91064C34.2441 7.05396 34.6081 7.36196 34.8155 7.76688C35.023 8.17181 35.0569 8.64048 34.9099 9.06981C34.7629 9.49913 34.4469 9.85394 34.0315 10.0562C33.6109 10.2387 33.188 10.4161 32.7628 10.5884L34.4445 13.8688C34.8095 14.5801 34.9995 15.3645 34.9993 16.1598V20.4706C35.0004 21.1908 34.845 21.903 34.5434 22.5605C34.2417 23.2179 33.8007 23.8056 33.2493 24.2849V26.4412C33.2493 27.1198 32.9727 27.7707 32.4805 28.2505C31.9882 28.7304 31.3205 29 30.6244 29C29.9282 29 29.2605 28.7304 28.7682 28.2505C28.276 27.7707 27.9994 27.1198 27.9994 26.4412V25.5882H6.99985V26.4412C6.99985 27.1198 6.7233 27.7707 6.23103 28.2505C5.73875 28.7304 5.07109 29 4.37491 29C3.67873 29 3.01106 28.7304 2.51879 28.2505C2.02652 27.7707 1.74996 27.1198 1.74996 26.4412V24.2849C0.675486 23.3467 0 21.9854 0 20.4706V16.1581C0.000327031 15.364 0.190249 14.5808 0.554738 13.8705L2.22245 10.6157C1.80071 10.4417 1.38247 10.2575 0.97123 10.0579C0.557943 9.85302 0.243787 9.49805 0.0964801 9.06949C-0.0508266 8.64094 -0.0194858 8.17312 0.183746 7.76688C0.286397 7.56632 0.428588 7.38744 0.602191 7.24047C0.775795 7.09351 0.977408 6.98133 1.19551 6.91036C1.41361 6.83938 1.64392 6.811 1.87327 6.82684C2.10263 6.84267 2.32654 6.90241 2.5322 7.00265C2.94519 7.20223 3.36693 7.38476 3.79217 7.55535L6.21762 2.83006C6.65345 1.97986 7.32354 1.26476 8.15281 0.764908C8.98209 0.265054 9.93777 0.00019069 10.9128 0H24.0865ZM9.6248 15.3529C8.92862 15.3529 8.26095 15.6225 7.76868 16.1024C7.27641 16.5823 6.99985 17.2331 6.99985 17.9118C6.99985 18.5904 7.27641 19.2413 7.76868 19.7211C8.26095 20.201 8.92862 20.4706 9.6248 20.4706C10.321 20.4706 10.9886 20.201 11.4809 19.7211C11.9732 19.2413 12.2497 18.5904 12.2497 17.9118C12.2497 17.2331 11.9732 16.5823 11.4809 16.1024C10.9886 15.6225 10.321 15.3529 9.6248 15.3529ZM25.3745 15.3529C24.6783 15.3529 24.0106 15.6225 23.5184 16.1024C23.0261 16.5823 22.7495 17.2331 22.7495 17.9118C22.7495 18.5904 23.0261 19.2413 23.5184 19.7211C24.0106 20.201 24.6783 20.4706 25.3745 20.4706C26.0706 20.4706 26.7383 20.201 27.2306 19.7211C27.7229 19.2413 27.9994 18.5904 27.9994 17.9118C27.9994 17.2331 27.7229 16.5823 27.2306 16.1024C26.7383 15.6225 26.0706 15.3529 25.3745 15.3529ZM24.0865 3.41176H10.9128C10.6247 3.41172 10.3412 3.48099 10.0872 3.61341C9.83319 3.74583 9.61666 3.93732 9.4568 4.17088L9.3483 4.35512L7.12585 8.68465C9.83479 9.47618 13.4852 10.2353 17.4996 10.2353C21.2481 10.2353 24.6762 9.57341 27.3169 8.84159L27.8717 8.68465L25.651 4.35512C25.5222 4.10404 25.3318 3.88782 25.0968 3.72564C24.8617 3.56346 24.5892 3.46034 24.3035 3.42541L24.0882 3.41176H24.0865Z"
+                                fill="#8BB718" />
+                        </svg>
                     </div>
                 </button>
                 <div class="font-bold">Modifica tu avatar</div>
-                <div class="absolute -right-10 -bottom-12 z-20 md:block hidden"> <img src="arrow.svg" alt="modifica"></div>
+                <div class="absolute -right-10 -bottom-12 z-20 md:block hidden"> <img src="arrow.svg" alt="modifica">
+                </div>
             </div>
             <!-- THE TAG -->
-             <div class="w-full md:col-span-2 order-1 md:order-2">
+            <div class="w-full md:col-span-2 order-1 md:order-2">
                 <div class="mytag mx-auto relative max-w-md">
                     <div class="mytag-content flex justify-center items-center relative z-10 flex-col gap-5">
-                        <header class="bg-white p-1 w-full text-center text-xl sm:text-3xl font-bold text-colg">{{ tagname }}</header>
+                        <header class="bg-white p-1 w-full text-center text-xl sm:text-3xl font-bold text-colg">
+                            {{tagnameA }} {{tagnameB }}
+                        </header>
                         <div class="grid grid-cols-2 items-center justify-center w-full">
                             <div>
-                                <img :src="`av/a${tagavatar}.webp`" alt="Mi avatar" class="w-20 sm:w-32 mx-auto">
+                                <img :src="`av/a${tagavatar+1}.webp`" alt="Mi avatar" class="w-20 sm:w-32 mx-auto">
                             </div>
                             <div class="font-bold text-center">
                                 <div class="text-white text-3xl sm:text-5xl">{{tagpuntosformat}}</div>
@@ -63,16 +85,22 @@
                     </div>
                     <div class="theshadow absolute inset-0 rounded-full shadow-lg z-0 blur-md"></div>
                 </div>
-             </div>
+            </div>
             <!-- / the tag-->
             <div class="grow text-white text-center relative order-3">
                 <button class="rounded-full bg-colg2 p-2  hover:shadow-lg hover:bg-white" @click="popalias = true">
-                    <div class="rounded-full bg-white p-3 flex justify-center items-center border-4 border-black aspect-square hover:shadow-inner hover:border-colg">
-                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"> <path fill-rule="evenodd" clip-rule="evenodd" d="M13.7752 0.0202739C14.4384 -0.0400738 15.107 0.0346399 15.7406 0.239903C16.3742 0.445165 16.9595 0.776718 17.4614 1.21454L17.7078 1.44452L30.5569 14.2956C31.4412 15.18 31.9561 16.3677 31.9973 17.6177C32.0385 18.8678 31.6029 20.0867 30.7787 21.0275L30.5569 21.264L21.2642 30.5569C20.3798 31.4412 19.1922 31.9561 17.9421 31.9973C16.6921 32.0385 15.4732 31.6029 14.5325 30.7787L14.2959 30.5569L1.4435 17.7059C0.972828 17.2352 0.602376 16.6741 0.354494 16.0563C0.106611 15.4386 -0.0135656 14.777 0.00121533 14.1116L0.0192852 13.7748L0.794636 5.25728C0.894179 4.15959 1.35882 3.12695 2.1143 2.3244C2.86978 1.52186 3.87248 0.99574 4.96215 0.830138L5.25619 0.79564L13.7752 0.0202739ZM9.64711 9.64829C9.34197 9.95343 9.09992 10.3157 8.93478 10.7144C8.76964 11.1131 8.68464 11.5404 8.68464 11.9719C8.68464 12.4035 8.76964 12.8308 8.93478 13.2295C9.09992 13.6282 9.34197 13.9904 9.64711 14.2956C9.95224 14.6007 10.3145 14.8428 10.7132 15.0079C11.1119 15.173 11.5392 15.258 11.9707 15.258C12.4022 15.258 12.8295 15.173 13.2282 15.0079C13.6269 14.8428 13.9891 14.6007 14.2943 14.2956C14.9105 13.6793 15.2567 12.8435 15.2567 11.9719C15.2567 11.1004 14.9105 10.2646 14.2943 9.64829C13.678 9.03202 12.8422 8.68581 11.9707 8.68581C11.0992 8.68581 10.2634 9.03202 9.64711 9.64829Z" fill="#8BB718"/> </svg>
+                    <div
+                        class="rounded-full bg-white p-3 flex justify-center items-center border-4 border-black aspect-square hover:shadow-inner hover:border-colg">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M13.7752 0.0202739C14.4384 -0.0400738 15.107 0.0346399 15.7406 0.239903C16.3742 0.445165 16.9595 0.776718 17.4614 1.21454L17.7078 1.44452L30.5569 14.2956C31.4412 15.18 31.9561 16.3677 31.9973 17.6177C32.0385 18.8678 31.6029 20.0867 30.7787 21.0275L30.5569 21.264L21.2642 30.5569C20.3798 31.4412 19.1922 31.9561 17.9421 31.9973C16.6921 32.0385 15.4732 31.6029 14.5325 30.7787L14.2959 30.5569L1.4435 17.7059C0.972828 17.2352 0.602376 16.6741 0.354494 16.0563C0.106611 15.4386 -0.0135656 14.777 0.00121533 14.1116L0.0192852 13.7748L0.794636 5.25728C0.894179 4.15959 1.35882 3.12695 2.1143 2.3244C2.86978 1.52186 3.87248 0.99574 4.96215 0.830138L5.25619 0.79564L13.7752 0.0202739ZM9.64711 9.64829C9.34197 9.95343 9.09992 10.3157 8.93478 10.7144C8.76964 11.1131 8.68464 11.5404 8.68464 11.9719C8.68464 12.4035 8.76964 12.8308 8.93478 13.2295C9.09992 13.6282 9.34197 13.9904 9.64711 14.2956C9.95224 14.6007 10.3145 14.8428 10.7132 15.0079C11.1119 15.173 11.5392 15.258 11.9707 15.258C12.4022 15.258 12.8295 15.173 13.2282 15.0079C13.6269 14.8428 13.9891 14.6007 14.2943 14.2956C14.9105 13.6793 15.2567 12.8435 15.2567 11.9719C15.2567 11.1004 14.9105 10.2646 14.2943 9.64829C13.678 9.03202 12.8422 8.68581 11.9707 8.68581C11.0992 8.68581 10.2634 9.03202 9.64711 9.64829Z"
+                                fill="#8BB718" />
+                        </svg>
                     </div>
                 </button>
                 <div class="font-bold">Modifica tu alias</div>
-                <div class="absolute -left-4 -top-12 z-20 md:block hidden"> <img src="arrow.svg" alt="modifica" class="rotate-180"></div>
+                <div class="absolute -left-4 -top-12 z-20 md:block hidden"> <img src="arrow.svg" alt="modifica"
+                        class="rotate-180"></div>
             </div>
         </div>
 
@@ -80,87 +108,120 @@
         <!-- / body -->
 
         <!-- modals: AVATAR -->
-         <div class="fixed inset-5 rounded-xl  bg-blue-900 p-5 z-50" v-if="popavatar">
+        <div class="fixed inset-5 rounded-xl  bg-blue-900 p-5 z-50" v-if="popavatar">
             <div class="w-full h-full flex justify-center items-center flex-col gap-5">
                 <h2 class="font-bold text-white text-4xl">Selecciona tu avatar</h2>
                 <div class="flex gap-6 snap-x snap-mandatory overflow-x-auto snap-x w-full p-5">
-                    <div class="snap-center shrink-0 p-1 cursor-pointer relative p-4" v-for="(item, index) in avatarslist" @click="selectAvatar(index)">
-                        <img :src="`av/a${item}.webp`" alt="Avatar" class="w-40 z-10" :class=" index==tagavatar?'':'saturate-0 scale-75' ">
-                        <div class=" w-full aspect-[10/9] absolute -z-10 rotate-6 rounded-full inset-0 border-2 border-white" :class=" index==tagavatar?'bg-colg2':'' "></div>
-                        <div class="w-full aspect-[10/8] absolute -z-10 -rotate-12 rounded-full inset-0 border-2 border-white" ></div>
+                    <div class="snap-center shrink-0 p-1 cursor-pointer relative p-4"
+                        v-for="(item, index) in avatarslist" @click="selectAvatar(index)">
+                        <img :src="`av/a${item}.webp`" alt="Avatar" class="w-40 z-10"
+                            :class=" index==tagavatar?'':'saturate-0 scale-75' ">
+                        <div class=" w-full aspect-[10/9] absolute -z-10 rotate-6 rounded-full inset-0 border-2 border-white"
+                            :class=" index==tagavatar?'bg-colg2':'' "></div>
+                        <div
+                            class="w-full aspect-[10/8] absolute -z-10 -rotate-12 rounded-full inset-0 border-2 border-white">
+                        </div>
                     </div>
                 </div>
-                <button class="font-bold bg-rose-500/50 text-white rounded px-5 py-2 hover:bg-rose-800" @click="popavatar=false;">Finalizar</button>
+                <button class="font-bold bg-rose-500/50 text-white rounded px-5 py-2 hover:bg-rose-800"
+                    @click="popavatar=false;">Finalizar</button>
             </div>
-         </div>
+        </div>
         <!-- modals: USUARIO -->
-         <div class="fixed inset-5 rounded-xl bg-blue-900 p-5 z-50" v-if="popalias">
+        <div class="fixed inset-5 rounded-xl bg-blue-900 p-5 z-50" v-if="popalias">
             <div class="w-full h-full flex justify-center items-center flex-col gap-5">
                 <h2 class="font-bold text-white text-4xl">Selecciona tu alias</h2>
                 <div class="flex gap-6 w-full flex-col">
                     <div>
-                        <div class="text-2xl md:text-5xl text-xl font-bold text-center text-colg p-5 bg-white">
-                            {{tagname}}
-                        </div>
-                        <div class="text-center">
-                            <button class="font-bold bg-colg2 text-white text-2xl rounded px-5 py-2 mt-2 hover:bg-colg mx-auto" @click="genalias">Generar nuevo alias</button>
+                        <div class="text-2xl md:text-5xl text-xl font-bold text-center text-colg p-5 bg-white flex gap-5 justify-center">
+                            <div>
+                                <div class="underline decoration-colg2">{{tagnameA }}</div>
+                                <button
+                                    class="font-bold bg-colg2 text-white text-lg rounded px-5 py-2 mt-2 hover:bg-colg mx-auto"
+                                    @click="changeTagA">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M4 20v-2h2.75l-.4-.35q-1.225-1.225-1.787-2.662T4 12.05q0-2.775 1.663-4.937T10 4.25v2.1Q8.2 7 7.1 8.563T6 12.05q0 1.125.425 2.188T7.75 16.2l.25.25V14h2v6zm10-.25v-2.1q1.8-.65 2.9-2.212T18 11.95q0-1.125-.425-2.187T16.25 7.8L16 7.55V10h-2V4h6v2h-2.75l.4.35q1.225 1.225 1.788 2.663T20 11.95q0 2.775-1.662 4.938T14 19.75"/></svg>
+                                </button>
+                            </div>
+                            <div>
+                                <div class="underline decoration-colg">{{tagnameB }}</div>
+                                <button
+                                class="font-bold bg-colg text-white text-lg rounded px-5 py-2 mt-2 hover:bg-colg2 mx-auto"
+                                @click="changeTagB">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M4 20v-2h2.75l-.4-.35q-1.225-1.225-1.787-2.662T4 12.05q0-2.775 1.663-4.937T10 4.25v2.1Q8.2 7 7.1 8.563T6 12.05q0 1.125.425 2.188T7.75 16.2l.25.25V14h2v6zm10-.25v-2.1q1.8-.65 2.9-2.212T18 11.95q0-1.125-.425-2.187T16.25 7.8L16 7.55V10h-2V4h6v2h-2.75l.4.35q1.225 1.225 1.788 2.663T20 11.95q0 2.775-1.662 4.938T14 19.75"/></svg>
+                            </button>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <button class="font-bold bg-rose-500/50 text-white rounded px-5 py-2 hover:bg-rose-800" @click="popalias=false;">Finalizar</button>
+                <button class="font-bold bg-rose-500/50 text-white rounded px-5 py-2 hover:bg-rose-800"
+                    @click="popalias=false;">Finalizar</button>
             </div>
-         </div>
-        
+        </div>
+
     </div>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script>
         const { createApp, ref, computed } = Vue
-      
+
         createApp({
-          setup() {
-            const tagname = ref('VIAJERO FRENÉTICO')
-            const tagavatar = ref(1)
-            const tagpuntos = ref(8900)
+            setup() {
+                const tagname = ref('VIAJERO FRENÉTICO')
 
-            const popavatar = ref(false)
-            const popalias = ref(false)
+                const tagnameA = ref('Viajero')
+                const tagnameB = ref('Veloz')
 
-            const sustantivos = [   'Viajero',   'TrotaMundos',   'Explorador',   'Nómada',   'Conductor',   'Aventurero',   'Camionero',   'Ciclista',   'Rider',   'Navegante',   'Tripulante',   'Pasajero',   'Motociclista',   'Andante',   'Guía',   'Viajante',   'Automovilista',   'Carretero',   'Rastreador',   'Senderista' ];
-            const adjetivos = [   'Rápido',   'Aventurero',   'Lejano',   'Frenético',   'Exótico',   'Infinito',   'Dinámico',   'Libertador',   'Súbito',   'Desafiante',   'Ágil',   'Veloz',   'Lejano',   'Vibrante',   'Esencial',   'Nómada',   'Flexible',   'Sofisticado',   'Intrépido',   'Global' ];
-            
-            // Computed property to format tagpuntos
-            const tagpuntosformat = computed(() => {
-              return tagpuntos.value.toLocaleString()
-            })
+                const tagavatar = ref(0)
+                const tagpuntos = ref(8900)
 
-            const selectAvatar = (index) => {
-                tagavatar.value = index
+                const popavatar = ref(false)
+                const popalias = ref(false)
+
+                const sustantivos = ['Viajero', 'TrotaMundos', 'Explorador', 'Nómada', 'Conductor', 'Aventurero', 'Camionero', 'Ciclista', 'Rider', 'Navegante', 'Tripulante', 'Pasajero', 'Motociclista', 'Andante', 'Guía', 'Viajante', 'Automovilista', 'Carretero', 'Rastreador', 'Senderista'];
+                const adjetivos = ['Rápido', 'Aventurero', 'Lejano', 'Frenético', 'Exótico', 'Infinito', 'Dinámico', 'Libertador', 'Súbito', 'Desafiante', 'Ágil', 'Veloz', 'Lejano', 'Vibrante', 'Esencial', 'Nómada', 'Flexible', 'Sofisticado', 'Intrépido', 'Global'];
+
+                // Computed property to format tagpuntos
+                const tagpuntosformat = computed(() => {
+                    return tagpuntos.value.toLocaleString()
+                })
+
+                const selectAvatar = (index) => {
+                    tagavatar.value = index
+                }
+
+                const genalias = () => {
+                    const sustantivoAleatorio = sustantivos[Math.floor(Math.random() * sustantivos.length)];
+                    const adjetivoAleatorio = adjetivos[Math.floor(Math.random() * adjetivos.length)];
+                    tagname.value = `${sustantivoAleatorio} ${adjetivoAleatorio}`;
+                    tagname.value = tagname.value.toUpperCase()
+                }
+                const changeTagA = () => {
+                    tagnameA.value = sustantivos[Math.floor(Math.random() * sustantivos.length)];
+                }
+                const changeTagB = () => {
+                    tagnameB.value = adjetivos[Math.floor(Math.random() * sustantivos.length)];
+                }
+
+                return {
+                    tagname,
+                    tagavatar,
+                    tagpuntos,
+                    tagpuntosformat,
+                    avatarslist: Array.from({ length: 16 }, (_, index) => index + 1),
+                    popavatar,
+                    selectAvatar,
+                    sustantivos,
+                    adjetivos,
+                    popalias,
+                    genalias,
+                    tagnameA,
+                    tagnameB,
+                    changeTagA,
+                    changeTagB,
+                }
             }
-
-            const genalias = () => {
-                const sustantivoAleatorio = sustantivos[Math.floor(Math.random() * sustantivos.length)];
-                const adjetivoAleatorio = adjetivos[Math.floor(Math.random() * adjetivos.length)];
-                tagname.value = `${sustantivoAleatorio} ${adjetivoAleatorio}`;
-                tagname.value = tagname.value.toUpperCase()
-            
-            }
-      
-            return {
-              tagname,
-              tagavatar,
-              tagpuntos,
-              tagpuntosformat,
-              avatarslist: Array.from({ length:16 }, (_, index) => index + 1),
-              popavatar,
-              selectAvatar,
-              sustantivos,
-              adjetivos,
-              popalias,
-              genalias
-            }
-          }
         }).mount('#app')
-      </script>
+    </script>
 </body>
+
 </html>
